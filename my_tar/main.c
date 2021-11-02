@@ -19,20 +19,6 @@ int main (int argc, char** argv)
     int ret = 0;
     if (is_create(opt))
         ret += options_create(opt, fd_archive);
-    /*printf ("WHAT EXACTLY IN ARCHIVE\n");
-    int indx = 0, isfile = 1;
-    char res[BLOCKSIZE];
-    lseek(fd_archive, 0, SEEK_SET);
-    while ((indx = read(fd_archive, res, BLOCKSIZE)) > 0)
-    {
-        if (isfile)
-        {
-            printf ("FILE: %s\n", res);
-            isfile = 0;
-        }
-        else 
-            isfile = 1;
-    }*/
     else
         ret += options_execute(opt, fd_archive);
     close(fd_archive);
