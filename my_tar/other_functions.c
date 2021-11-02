@@ -145,7 +145,3 @@ void make_ready(char *rec, unsigned int mode){
         mkdir(cop, mode);
     }
 }
-/*char* get_archive_content(int fd_archive)
-{
-
-}*/
