@@ -46,16 +46,6 @@ file_data* get_file_data(char* file_name)
     res -> typeflag = get_typeflag(buff.st_mode);
     convert(res -> devmajor, major(buff.st_rdev), 8, OCTAL);
     convert(res -> devminor, minor(buff.st_rdev), 8, OCTAL);
-    /*memset(res, 0, sizeof(struct s_my_file));
-    strncpy(res -> name, file_name, 100);
-    snprintf(res -> mode,  sizeof(res -> mode),  "%07o", buff.st_mode & 0777);
-    snprintf(res -> uid,   sizeof(res -> uid),   "%07o", buff.st_uid);
-    snprintf(res -> gid,   sizeof(res -> gid),   "%07o", buff.st_gid);
-    snprintf(res -> size,  sizeof(res -> size),  "%011o", (int) buff.st_size);
-    snprintf(res -> mtime, sizeof(res -> mtime), "%011o", (int) buff.st_mtime);
-    strncpy(res -> magic, "0ustar", 6);
-    strncpy(res -> uname, "docode", 32);
-    strncpy(res -> gname, "docode", 32);*/
     if (res -> typeflag == LNKTYPE) { 
         if (readlink(file_name, res -> name, 100) < 0) { 
             return NULL;
